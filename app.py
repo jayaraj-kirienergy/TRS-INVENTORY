@@ -32,13 +32,14 @@ if button1:
       a = "AT KIRI YARD"
       st.write(a)
       out_date = st.date_input('OUTWARD-DATE:',today)
-      if len(out_date) == 10:
-        print("DATE IS OK")
-        out_challan = input('OUTWARD - CHALLAN :')
-        need_line.loc[ind,'CHALLAN_2'] = out_challan
-        need_line.loc[ind,'OUTWARD_DATE'] = out_date
-    
-    st.dataframe(need_line)
+      out_challan = input('OUTWARD - CHALLAN :')
+      need_line.loc[ind,'CHALLAN_2'] = out_challan
+      need_line.loc[ind,'OUTWARD_DATE'] = out_date
+      st.dataframe(need_line)
+    else:
+      pass
+  else:
+    st.write("PLEASE ENTER CORRECT ASSERT-NO")
     #master_df.loc[ind] = need_line.loc[ind]
     #master_df.to_excel(master_path)
     #print("UPDATED SUCESSFULLY")
