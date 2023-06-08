@@ -36,7 +36,7 @@ if button1:
         if need_line.loc[ind,'INWARD_DATE'].notnull().any() & need_line.loc[ind,'OUTWARD_DATE'].isnull().any():
           a = "AT KIRI YARD"
           st.write(a)
-          out_date = st.date_input('OUTWARD-DATE:',today)
+          out_date = st.date_input('OUTWARD-DATE:')
           out_challan = st.text_input('OUTWARD - CHALLAN :')
           button3 = st.button("SUBMIT")
           if button3:
