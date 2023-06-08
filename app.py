@@ -20,24 +20,26 @@ button2 = st.button("SERVICE-TICKET GENERATION")
 if button1:
   a = "PLEASE FILL THE INVENTORY FORM"
   st.write(a)
-  inp_assert_id = st.text_input("ENTER THE ASSERT-NO ")
-  temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
-  s = pd.Series(list(temp_master_df['ASSERT_NO']))
-  st.write(s)
-  if inp_assert_id in s.values:
-    ind = temp_master_df[temp_master_df['ASSERT_NO']==inp_assert_id].index.values
-    need_line = temp_master_df.loc[ind]
-    need_line['OUTWARD_DATE'] = pd.to_datetime(need_line['OUTWARD_DATE'],errors='coerce')
-    need_line['INWARD_DATE'] = pd.to_datetime(need_line['INWARD_DATE'],errors='coerce')
-    #print(need_line[['ASSERT_NO','DESCRIPTION','OUTWARD_DATE','INWARD_DATE']])
-    if need_line.loc[ind,'INWARD_DATE'].notnull().any() & need_line.loc[ind,'OUTWARD_DATE'].isnull().any():
-      a = "AT KIRI YARD"
-      st.write(a)
-      out_date = st.date_input('OUTWARD-DATE:',today)
-      out_challan = st.text_input('OUTWARD - CHALLAN :')
-      need_line.loc[ind,'CHALLAN_2'] = out_challan
-      need_line.loc[ind,'OUTWARD_DATE'] = out_date
-      st.dataframe(need_line)
+  inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
+  button3 = st.button("SUBMIT")
+  if button3:
+    temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
+    s = pd.Series(list(temp_master_df['ASSERT_NO']))
+    st.write(s)
+    if inp_assert_id in s.values:
+      ind = temp_master_df[temp_master_df['ASSERT_NO']==inp_assert_id].index.values
+      need_line = temp_master_df.loc[ind]
+      need_line['OUTWARD_DATE'] = pd.to_datetime(need_line['OUTWARD_DATE'],errors='coerce')
+      need_line['INWARD_DATE'] = pd.to_datetime(need_line['INWARD_DATE'],errors='coerce')
+      #print(need_line[['ASSERT_NO','DESCRIPTION','OUTWARD_DATE','INWARD_DATE']])
+      if need_line.loc[ind,'INWARD_DATE'].notnull().any() & need_line.loc[ind,'OUTWARD_DATE'].isnull().any():
+        a = "AT KIRI YARD"
+        st.write(a)
+        out_date = st.date_input('OUTWARD-DATE:',today)
+        out_challan = st.text_input('OUTWARD - CHALLAN :')
+        need_line.loc[ind,'CHALLAN_2'] = out_challan
+        need_line.loc[ind,'OUTWARD_DATE'] = out_date
+        st.dataframe(need_line)
     else:
       pass
   else:
