@@ -20,7 +20,7 @@ button2 = st.button("SERVICE-TICKET GENERATION")
 if button1:
   a = "PLEASE FILL THE INVENTORY FORM"
   st.write(a)
-  inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
+  inp_assert_id = st.text_input("ENTER THE ASSERT-NO ")
   temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
   s = pd.Series(list(temp_master_df['ASSERT_NO']))
   st.write(s)
