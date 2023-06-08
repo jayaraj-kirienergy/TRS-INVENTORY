@@ -20,6 +20,7 @@ button2 = st.button("SERVICE-TICKET GENERATION")
 if button1:
   st.write("PLEASE FILL THE INVENTORY FORM")
   inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
+  st.write(inp_assert_id)
   button3 = st.button("SUBMIT")
   if button3:
       st.write("reached till here")
