@@ -14,15 +14,13 @@ unique_df = pd.read_excel(unique_path)
 project_df = pd.read_excel(project_path)
 master_df = pd.read_excel(master_path)
 
+
+inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
 button1 = st.button("UPDATE-INVENTORY")
 button2 = st.button("SERVICE-TICKET GENERATION")
 
 if button1:
-  st.write("PLEASE FILL THE INVENTORY FORM")
-  inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
-  st.write(inp_assert_id)
-  button3 = st.button("SUBMIT")
-  if button3:
+      st.write(inp_assert_id)
       st.write("reached till here")
       st.write(inp_assert_id)
       temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
