@@ -22,7 +22,10 @@ if button1:
   inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
   button3 = st.button("SUBMIT")
   if button3:
+    st.write("reached till here")
+    st.write(inp_assert_id)
     temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
+    st.write("reached till here")
     s = pd.Series(list(temp_master_df['ASSERT_NO']))
     st.write(s)
     if inp_assert_id in s.values:
