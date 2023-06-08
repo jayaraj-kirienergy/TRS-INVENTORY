@@ -23,6 +23,7 @@ if button1:
   inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
   temp_master_df = master_df.drop_duplicates(subset=['ASSERT_NO'],keep = 'last')
   s = pd.Series(list(temp_master_df['ASSERT_NO']))
+  st.write(s)
   if inp_assert_id in s.values:
     ind = temp_master_df[temp_master_df['ASSERT_NO']==inp_assert_id].index.values
     need_line = temp_master_df.loc[ind]
