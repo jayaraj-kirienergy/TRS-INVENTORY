@@ -38,6 +38,7 @@ if button1:
           st.write(a)
           out_date = st.date_input('OUTWARD-DATE:',today)
           out_challan = st.text_input('OUTWARD - CHALLAN :')
-          need_line.loc[ind,'CHALLAN_2'] = out_challan
-          need_line.loc[ind,'OUTWARD_DATE'] = out_date
-          st.dataframe(need_line)
+          if out_date.notnull & out_challan.notnull:
+                need_line.loc[ind,'CHALLAN_2'] = out_challan
+                need_line.loc[ind,'OUTWARD_DATE'] = out_date
+                st.dataframe(need_line)
