@@ -18,8 +18,7 @@ button1 = st.button("UPDATE-INVENTORY")
 button2 = st.button("SERVICE-TICKET GENERATION")
 
 if button1:
-  a = "PLEASE FILL THE INVENTORY FORM"
-  st.write(a)
+  st.write("PLEASE FILL THE INVENTORY FORM")
   inp_assert_id = st.text_input("ENTER THE ASSERT-NO ",)
   button3 = st.button("SUBMIT")
   if button3:
@@ -40,10 +39,3 @@ if button1:
         need_line.loc[ind,'CHALLAN_2'] = out_challan
         need_line.loc[ind,'OUTWARD_DATE'] = out_date
         st.dataframe(need_line)
-    else:
-      pass
-  else:
-    st.write("PLEASE ENTER CORRECT ASSERT-NO")
-    #master_df.loc[ind] = need_line.loc[ind]
-    #master_df.to_excel(master_path)
-    #print("UPDATED SUCESSFULLY")
